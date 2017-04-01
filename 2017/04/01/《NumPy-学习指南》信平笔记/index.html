@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/01/《NumPy-学习指南》信平笔记/index.html">
 <meta property="og:site_name" content="信平的小屋">
 <meta property="og:description" content="学习《NumPy 学习指南》笔记, 吃透每个知识点，特此勉励自己。">
-<meta property="og:updated_time" content="2017-04-01T13:21:19.736Z">
+<meta property="og:updated_time" content="2017-04-01T13:23:26.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《NumPy 学习指南》笔记">
 <meta name="twitter:description" content="学习《NumPy 学习指南》笔记, 吃透每个知识点，特此勉励自己。">
@@ -52,7 +52,7 @@
 		  <h1 class="header-author"><a href="/">王信平</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">不忘初心，方得始终</p>
+		<p class="header-subtitle">不忘初心，方得始终 QQ=759949947</p>
 		
 
 		<nav class="header-menu">
@@ -112,7 +112,7 @@
 			  <h1 class="header-author js-header-author">王信平</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>不忘初心，方得始终<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>不忘初心，方得始终 QQ=759949947<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -182,14 +182,14 @@
 				
 				<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第1章-NumPy-快速入门"><span class="toc-number">1.</span> <span class="toc-text">第1章 NumPy 快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-数组对象"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 数组对象</span></a></li></ol></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第1章-NumPy-快速入门"><span class="toc-number">1.</span> <span class="toc-text">第1章 NumPy 快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组对象"><span class="toc-number">1.1.</span> <span class="toc-text">数组对象</span></a></li></ol></li></ol>
 				</div>
 				
 	  
 	  
         <p>学习《NumPy 学习指南》笔记, 吃透每个知识点，特此勉励自己。</p>
 <a id="more"></a>
-<h1 id="第1章-NumPy-快速入门"><a href="#第1章-NumPy-快速入门" class="headerlink" title="第1章 NumPy 快速入门"></a>第1章 NumPy 快速入门</h1><h2 id="1-1-数组对象"><a href="#1-1-数组对象" class="headerlink" title="1.1 数组对象"></a>1.1 数组对象</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">numpysum</span><span class="params">(n)</span>:</span></div><div class="line">   a = np.arange(n) ** <span class="number">2</span></div><div class="line">   b = np.arange(n) ** <span class="number">3</span></div><div class="line">   c = a + b</div><div class="line"></div><div class="line">   <span class="keyword">return</span> c</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">pythonsum</span><span class="params">(n)</span>:</span></div><div class="line">   a = range(n)</div><div class="line">   b = range(n)</div><div class="line">   c = []</div><div class="line"></div><div class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</div><div class="line">       a[i] = i ** <span class="number">2</span></div><div class="line">       b[i] = i ** <span class="number">3</span></div><div class="line">       c.append(a[i] + b[i])</div><div class="line"></div><div class="line">   <span class="keyword">return</span> c</div><div class="line"></div><div class="line">size =  <span class="number">3</span> </div><div class="line"></div><div class="line">start = datetime.now()</div><div class="line">c = pythonsum(size)</div><div class="line">delta = datetime.now() - start</div><div class="line"><span class="keyword">print</span> <span class="string">"The last 2 elements of the sum"</span>, c[<span class="number">-2</span>:]</div><div class="line"><span class="keyword">print</span> <span class="string">"PythonSum elapsed time in microseconds"</span>, delta.microseconds</div><div class="line"></div><div class="line">start = datetime.now()</div><div class="line">c = numpysum(size)</div><div class="line">delta = datetime.now() - start</div><div class="line"><span class="keyword">print</span> <span class="string">"The last 2 elements of the sum"</span>, c[<span class="number">-2</span>:]</div><div class="line"><span class="keyword">print</span> <span class="string">"NumPySum elapsed time in microseconds"</span>, delta.microseconds</div></pre></td></tr></table></figure>
+<h1 id="第1章-NumPy-快速入门"><a href="#第1章-NumPy-快速入门" class="headerlink" title="第1章 NumPy 快速入门"></a>第1章 NumPy 快速入门</h1><h2 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">numpysum</span><span class="params">(n)</span>:</span></div><div class="line">   a = np.arange(n) ** <span class="number">2</span></div><div class="line">   b = np.arange(n) ** <span class="number">3</span></div><div class="line">   c = a + b</div><div class="line"></div><div class="line">   <span class="keyword">return</span> c</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">pythonsum</span><span class="params">(n)</span>:</span></div><div class="line">   a = range(n)</div><div class="line">   b = range(n)</div><div class="line">   c = []</div><div class="line"></div><div class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</div><div class="line">       a[i] = i ** <span class="number">2</span></div><div class="line">       b[i] = i ** <span class="number">3</span></div><div class="line">       c.append(a[i] + b[i])</div><div class="line"></div><div class="line">   <span class="keyword">return</span> c</div><div class="line"></div><div class="line">size =  <span class="number">3</span> </div><div class="line"></div><div class="line">start = datetime.now()</div><div class="line">c = pythonsum(size)</div><div class="line">delta = datetime.now() - start</div><div class="line"><span class="keyword">print</span> <span class="string">"The last 2 elements of the sum"</span>, c[<span class="number">-2</span>:]</div><div class="line"><span class="keyword">print</span> <span class="string">"PythonSum elapsed time in microseconds"</span>, delta.microseconds</div><div class="line"></div><div class="line">start = datetime.now()</div><div class="line">c = numpysum(size)</div><div class="line">delta = datetime.now() - start</div><div class="line"><span class="keyword">print</span> <span class="string">"The last 2 elements of the sum"</span>, c[<span class="number">-2</span>:]</div><div class="line"><span class="keyword">print</span> <span class="string">"NumPySum elapsed time in microseconds"</span>, delta.microseconds</div></pre></td></tr></table></figure>
 
       
 
@@ -400,11 +400,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">《刘克亚励志英语》</a>
+                <a href="javascript:void(0)" class="js-tag color5">《NumPy 学习指南》笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">《NumPy 学习指南》笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">《刘克亚励志英语》</a>
               </li>
             
             <div class="clearfix"></div>
@@ -487,7 +487,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家&lt;br/&gt;一线软件程序猿，精通J2EE,JS,HTML5&lt;br/&gt;QQ=759949947 , Email=xpws2006@163.com</div>
   	  	
     	</section>
     

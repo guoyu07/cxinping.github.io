@@ -20,7 +20,7 @@ https://hexo.io/zh-cn/">
 https://hexo.io/zh-cn/">
 <meta property="og:image" content="http://i.imgur.com/4pYYzaM.png">
 <meta property="og:image" content="http://i.imgur.com/cQHWJ1t.png">
-<meta property="og:updated_time" content="2017-04-01T15:44:42.595Z">
+<meta property="og:updated_time" content="2017-04-01T15:52:07.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo搭建自己的博客">
 <meta name="twitter:description" content="Hexo是一个快速、简洁且高效的博客框架，支持markDown，有丰富的插件和主题。官方地址是：
@@ -227,12 +227,17 @@ https://hexo.io/zh-cn/">
 <blockquote>
 <p><a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></p>
 </blockquote>
-<p>在github上新建一个项目，博主的项目名字叫做cxinping.github.io,这个是固定的，不能改，一个github用户只能创建一个个人静态网页和一个组织静态网页。<br>step2: 配置blog目录下的_config.yml文件，修改deploy参数，其中repository换成刚刚新建项目的git地址，这里用的https，也可以用git形式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git </div><div class="line">  repository: https://github.com/cxinping/cxinping.github.io.git </div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>step3: 在blog目录下，用上面提到的gitbash执行以下命令即可 </p>
+<p>在github上新建一个项目，博主的项目名字叫做cxinping.github.io,这个是固定的，不能改，一个github用户只能创建一个个人静态网页和一个组织静态网页。<br>step2: 配置blog目录下的_config.yml文件，修改deploy参数，其中repository换成刚刚新建项目的git地址，这里使用git形式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git </div><div class="line">  repository: https://github.com/cxinping/cxinping.github.io.git </div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p>备注：在hexo3.x版本下，这里的type应该填git，不是github；另外冒号后面都有一个英文的空格，不然会报错的。</p>
+<p>step3: 修改完config.yml文件后，需要使用以下命令保存配置。</p>
+<blockquote>
+<p>npm install hexo-deployer-git–save</p>
+</blockquote>
+<p>step4: 在blog目录下，用上面提到的gitbash执行以下命令即可 </p>
 <blockquote>
 <p>hexo g hexo d</p>
 </blockquote>
-<p>step4:在浏览器中输入 <a href="https://cxinping.github.io" target="_blank" rel="external">https://cxinping.github.io</a> 即可看到部署的博客。</p>
+<p>step5:在浏览器中输入 <a href="https://cxinping.github.io" target="_blank" rel="external">https://cxinping.github.io</a> 即可看到部署的博客。</p>
 
       
 

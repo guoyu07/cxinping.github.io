@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/02/python学习笔记/index.html">
 <meta property="og:site_name" content="信平的小屋">
 <meta property="og:description" content="欢迎来到信平的小屋，QQ :759949947, Email: xpws2006@163.com此文是博主业余时间学习python做的笔记,但求吃透每个知识点，特此勉励自己。">
-<meta property="og:updated_time" content="2017-04-02T15:58:48.849Z">
+<meta property="og:updated_time" content="2017-04-03T14:56:09.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python学习笔记">
 <meta name="twitter:description" content="欢迎来到信平的小屋，QQ :759949947, Email: xpws2006@163.com此文是博主业余时间学习python做的笔记,但求吃透每个知识点，特此勉励自己。">
@@ -182,13 +182,37 @@
 				
 				<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				
+				<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Scipy"><span class="toc-number">1.</span> <span class="toc-text">Scipy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Scipy"><span class="toc-number">1.1.</span> <span class="toc-text">什么是Scipy?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scipy中的数据结构"><span class="toc-number">1.2.</span> <span class="toc-text">Scipy中的数据结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NumPy"><span class="toc-number">2.</span> <span class="toc-text">NumPy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是NumPy"><span class="toc-number">2.1.</span> <span class="toc-text">什么是NumPy ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输出矩阵"><span class="toc-number">2.2.</span> <span class="toc-text">输出矩阵</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Matplotlib"><span class="toc-number">3.</span> <span class="toc-text">Matplotlib</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Pandas"><span class="toc-number">4.</span> <span class="toc-text">Pandas</span></a></li></ol>
 				</div>
 				
 	  
 	  
         <p>欢迎来到信平的小屋，QQ :759949947, Email: xpws2006@163.com<br>此文是博主业余时间学习python做的笔记,但求吃透每个知识点，特此勉励自己。</p>
 <a id="more"></a>
+<h1 id="Scipy"><a href="#Scipy" class="headerlink" title="Scipy"></a>Scipy</h1><h2 id="什么是Scipy"><a href="#什么是Scipy" class="headerlink" title="什么是Scipy?"></a>什么是Scipy?</h2><p>SciPy函数库在NumPy库的基础上增加了众多的数学、科学以及工程计算中常用的库函数。例如线性代数、常微分方程数值求解、信号处理、图像处理、稀疏矩阵等等。</p>
+<h2 id="Scipy中的数据结构"><a href="#Scipy中的数据结构" class="headerlink" title="Scipy中的数据结构"></a>Scipy中的数据结构</h2><ul>
+<li>ndarray： N维数组</li>
+<li>Series：变长字典</li>
+<li>DataFrame: 数据框</li>
+</ul>
+<h1 id="NumPy"><a href="#NumPy" class="headerlink" title="NumPy"></a>NumPy</h1><h2 id="什么是NumPy"><a href="#什么是NumPy" class="headerlink" title="什么是NumPy ?"></a>什么是NumPy ?</h2><p>NumPy系统是Python的一种开源的数值计算扩展。这种工具可用来存储和处理大型矩阵，比Python自身的嵌套列表（nested list structure)结构要高效的多。</p>
+<h2 id="输出矩阵"><a href="#输出矩阵" class="headerlink" title="输出矩阵"></a>输出矩阵</h2><p>np.ones()函数定义矩阵。使用np.ones( (3,4))函数生成一个3 * 4列的矩阵。返回的类型是ndarray，是个多维数组。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">xArray = np.ones( (<span class="number">3</span>,<span class="number">4</span>))</div><div class="line">print( xArray)</div></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[[ <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>]</div><div class="line"> [ <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>]</div><div class="line"> [ <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>]]</div></pre></td></tr></table></figure></p>
+<h1 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h1><p>特征：</p>
+<ul>
+<li>基于Numpy</li>
+<li>二维会图库，简单快速的生成曲线图，直方图和散点图等形式的图</li>
+<li>常用的pyplot是一个简单提供类似MATLAB接口的模块</li>
+</ul>
+<h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><p>特征：</p>
+<ul>
+<li>基于SciPy和NumPy</li>
+<li>高效的Series和DataFrame数据结构</li>
+<li>强大的可扩展数据操作与分析的Python库</li>
+<li>高效处理大数据集的切片等功能</li>
+<li>提供优化库功能读写多种文件格式，如CSV,HDFS</li>
+</ul>
+<p>Pandas主要用来用来处理数据，数据处理分为以下几个步骤：<br>数据收集 =&gt; 数据整理 =&gt; 数据分析</p>
 
       
 
@@ -292,6 +316,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/04/03/正念的奇迹/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          正念的奇迹
+        
+      </div>
+    </a>
   
   
     <a href="/2017/04/01/用hexo搭建自己的博客/" id="article-nav-older" class="article-nav-link-wrap">
@@ -408,6 +441,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">心有猛虎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Chan</a>
               </li>
             
             <div class="clearfix"></div>

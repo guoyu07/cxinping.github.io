@@ -20,7 +20,7 @@ https://hexo.io/zh-cn/">
 https://hexo.io/zh-cn/">
 <meta property="og:image" content="http://i.imgur.com/4pYYzaM.png">
 <meta property="og:image" content="http://i.imgur.com/cQHWJ1t.png">
-<meta property="og:updated_time" content="2017-04-04T11:48:00.451Z">
+<meta property="og:updated_time" content="2017-04-05T09:37:26.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo搭建自己的博客">
 <meta name="twitter:description" content="Hexo是一个快速、简洁且高效的博客框架，支持markDown，有丰富的插件和主题。官方地址是：
@@ -191,7 +191,7 @@ https://hexo.io/zh-cn/">
 				
 				<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装环境"><span class="toc-number">1.</span> <span class="toc-text">安装环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装git"><span class="toc-number">1.1.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Node-js"><span class="toc-number">1.2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">安装Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地部署Hexo"><span class="toc-number">2.</span> <span class="toc-text">本地部署Hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部署到Github"><span class="toc-number">3.</span> <span class="toc-text">部署到Github</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用Markdown"><span class="toc-number">4.</span> <span class="toc-text">使用Markdown</span></a></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装环境"><span class="toc-number">1.</span> <span class="toc-text">安装环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装git"><span class="toc-number">1.1.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Node-js"><span class="toc-number">1.2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">安装Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地部署Hexo"><span class="toc-number">2.</span> <span class="toc-text">本地部署Hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部署到Github"><span class="toc-number">3.</span> <span class="toc-text">部署到Github</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部署时保证README-md文件不被渲染"><span class="toc-number">4.</span> <span class="toc-text">部署时保证README.md文件不被渲染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用Markdown"><span class="toc-number">5.</span> <span class="toc-text">使用Markdown</span></a></li></ol>
 				</div>
 				
 	  
@@ -238,6 +238,10 @@ https://hexo.io/zh-cn/">
 <p>hexo g hexo d</p>
 </blockquote>
 <p>step5:在浏览器中输入 <a href="https://cxinping.github.io" target="_blank" rel="external">https://cxinping.github.io</a> 即可看到部署的博客。</p>
+<h1 id="部署时保证README-md文件不被渲染"><a href="#部署时保证README-md文件不被渲染" class="headerlink" title="部署时保证README.md文件不被渲染"></a>部署时保证README.md文件不被渲染</h1><p>确保README.md文件不被渲染很容易，只要在博客根目录下的配置文件_config.yml中配置一下”skip_render”选项就行了，将不需要渲染的文件名称加入的其选项下就行了。</p>
+<blockquote>
+<p>skip_render: README.md</p>
+</blockquote>
 <h1 id="使用Markdown"><a href="#使用Markdown" class="headerlink" title="使用Markdown"></a>使用Markdown</h1><p>Markdown的文档介绍<a href="ttp://www.appinn.com/markdown/" target="_blank" rel="external">http://www.appinn.com/markdown/</a></p>
 
       
@@ -458,19 +462,19 @@ https://hexo.io/zh-cn/">
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英语</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">十分钟搞定Pandas</a>
+                <a href="javascript:void(0)" class="js-tag color3">英语</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">心有猛虎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">十分钟搞定Pandas</a>
               </li>
              
               <li class="article-tag-list-item">

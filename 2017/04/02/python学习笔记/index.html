@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://cxinping.github.io/uploads/hist1.png">
 <meta property="og:image" content="https://cxinping.github.io/uploads/hist2.png">
 <meta property="og:image" content="https://cxinping.github.io/uploads/pic1.png">
-<meta property="og:updated_time" content="2017-04-06T03:58:26.502Z">
+<meta property="og:updated_time" content="2017-04-06T04:11:10.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python学习笔记">
 <meta name="twitter:description" content="欢迎来到信平的小屋，QQ :759949947, Email: xpws2006@163.com此文是博主业余时间学习python做的笔记,但求吃透每个知识点，特此勉励自己。">
@@ -250,7 +250,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bins = np.arange(<span class="number">-5.</span>, <span class="number">16.</span>, <span class="number">1.</span>) <span class="comment">#浮点数版本的range</span></div><div class="line">pl.hist(data, bins, histtype=<span class="string">'stepfilled'</span>)</div></pre></td></tr></table></figure>
 <h2 id="同一画板上绘制多幅子图-Plotting-more-than-one-axis-per-canvas"><a href="#同一画板上绘制多幅子图-Plotting-more-than-one-axis-per-canvas" class="headerlink" title="同一画板上绘制多幅子图 Plotting more than one axis per canvas"></a>同一画板上绘制多幅子图 Plotting more than one axis per canvas</h2><p>如果需要同时绘制多幅图表的话，可以是给figure传递一个整数参数指定图标的序号，如果所指定<br>序号的绘图对象已经存在的话，将不创建新的对象，而只是让它成为当前绘图对象。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fig1 = pl.figure(<span class="number">1</span>)</div><div class="line">pl.subplot(<span class="number">211</span>)</div></pre></td></tr></table></figure></p>
 <p>subplot(211)把绘图区域等分为2行*1列共两个区域, 然后在区域1(上区域)中创建一个轴对象. pl.subplot(212)在区域2(下区域)创建一个轴对象。<br><img src="https://cxinping.github.io/uploads/pic1.png" alt=""></p>
-<p>111<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
       
 

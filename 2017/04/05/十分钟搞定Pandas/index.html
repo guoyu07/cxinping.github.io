@@ -9,19 +9,19 @@
   <title>信平的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="十分钟搞定Pandas
-本文是学习Pandas的简要学习笔记。">
+本文是学习Pandas的简要学习笔记。主要参考资料：http://python.jobbole.com/84416/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="信平的小屋">
 <meta property="og:url" content="http://yoursite.com/2017/04/05/十分钟搞定Pandas/index.html">
 <meta property="og:site_name" content="信平的小屋">
 <meta property="og:description" content="十分钟搞定Pandas
-本文是学习Pandas的简要学习笔记。">
+本文是学习Pandas的简要学习笔记。主要参考资料：http://python.jobbole.com/84416/">
 <meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/wangshuo1/921455/o_v2-bf96258ac962d2b6cb529f148aaa0cdc_b.png">
-<meta property="og:updated_time" content="2017-04-05T06:38:07.674Z">
+<meta property="og:updated_time" content="2017-04-06T01:27:35.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信平的小屋">
 <meta name="twitter:description" content="十分钟搞定Pandas
-本文是学习Pandas的简要学习笔记。">
+本文是学习Pandas的简要学习笔记。主要参考资料：http://python.jobbole.com/84416/">
 <meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/wangshuo1/921455/o_v2-bf96258ac962d2b6cb529f148aaa0cdc_b.png">
   
     <link rel="alternative" href="/atom.xml" title="信平的小屋" type="application/atom+xml">
@@ -178,7 +178,7 @@
 	  
 	  
         <p>十分钟搞定Pandas</p>
-<p>本文是学习Pandas的简要学习笔记。</p>
+<p>本文是学习Pandas的简要学习笔记。主要参考资料：<a href="http://python.jobbole.com/84416/" target="_blank" rel="external">http://python.jobbole.com/84416/</a></p>
 <a id="more"></a>
 <p>本文是对pandas官方网站上《10 Minutes to pandas》的一个简单的翻译。这篇文章是对pandas的一个简单的介绍，详细的介绍请参考：<a href="http://pandas.pydata.org/pandas-docs/stable/cookbook.html#cookbook" target="_blank" rel="external">CookBook</a>。也可以查看<a href="http://pandas.pydata.org/pandas-docs/stable/10min.html" target="_blank" rel="external">原文</a>。<br>习惯上，我们会按下面格式引入所需要的包：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">In [<span class="number">2</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">In [<span class="number">3</span>]: <span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div></pre></td></tr></table></figure></p>
 <h1 id="一、-创建对象"><a href="#一、-创建对象" class="headerlink" title="一、 创建对象"></a>一、 创建对象</h1><p>可以通过 <a href="http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dsintro" target="_blank" rel="external">Data Structure Intro Setion</a> 来查看有关该节内容的详细信息。<br>1、可以通过传递一个list对象来创建一个Series，pandas会默认创建整型索引：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">4</span>]: s = pd.Series([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,np.nan,<span class="number">6</span>,<span class="number">8</span>])</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: s</div><div class="line">Out[<span class="number">5</span>]: </div><div class="line"><span class="number">0</span>    <span class="number">1.0</span></div><div class="line"><span class="number">1</span>    <span class="number">3.0</span></div><div class="line"><span class="number">2</span>    <span class="number">5.0</span></div><div class="line"><span class="number">3</span>    NaN</div><div class="line"><span class="number">4</span>    <span class="number">6.0</span></div><div class="line"><span class="number">5</span>    <span class="number">8.0</span></div><div class="line">dtype: float64</div></pre></td></tr></table></figure></p>

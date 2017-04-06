@@ -16,7 +16,8 @@
 <meta property="og:description" content="欢迎来到信平的小屋，QQ :759949947, Email: xpws2006@163.com此文是博主业余时间学习python做的笔记,但求吃透每个知识点，特此勉励自己。">
 <meta property="og:image" content="https://cxinping.github.io/uploads/201205230001198952.png">
 <meta property="og:image" content="https://cxinping.github.io/uploads/plot1.png">
-<meta property="og:updated_time" content="2017-04-06T02:06:20.388Z">
+<meta property="og:image" content="https://cxinping.github.io/uploads/plot2.png">
+<meta property="og:updated_time" content="2017-04-06T02:32:14.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python学习笔记">
 <meta name="twitter:description" content="欢迎来到信平的小屋，QQ :759949947, Email: xpws2006@163.com此文是博主业余时间学习python做的笔记,但求吃透每个知识点，特此勉励自己。">
@@ -222,6 +223,7 @@
 <h1 id="Matplotlib常用绘图"><a href="#Matplotlib常用绘图" class="headerlink" title="Matplotlib常用绘图"></a>Matplotlib常用绘图</h1><h2 id="折线图-Line-plots"><a href="#折线图-Line-plots" class="headerlink" title="折线图 Line plots"></a>折线图 Line plots</h2><p>折线图Line plots时关联一组x和y值的直线。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"> </div><div class="line">x = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]<span class="comment"># Make an array of x values</span></div><div class="line">y = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]<span class="comment"># Make an array of y values for each x value</span></div><div class="line"></div><div class="line">pl.plot(x, y)<span class="comment"># use pylab to plot x and y</span></div><div class="line">pl.show()<span class="comment"># show the plot on the screen</span></div></pre></td></tr></table></figure></p>
 <p>运行脚本，显示如下图表：<br><img src="https://cxinping.github.io/uploads/201205230001198952.png" alt=""></p>
 <h2 id="散点图-Scatter-plots"><a href="#散点图-Scatter-plots" class="headerlink" title="散点图 Scatter plots"></a>散点图 Scatter plots</h2><p>把pl.plot(x, y)改成pl.plot(x, y, ‘o’)即可，下图的蓝色版本<br><img src="https://cxinping.github.io/uploads/plot1.png" alt=""></p>
+<p>1 线条颜色 Changing the line color<br>改变线条为红色：把pl.plot(x, y, ‘o’)改成pl.plot(x, y, ’or’)<br><img src="https://cxinping.github.io/uploads/plot2.png" alt=""></p>
 
       
 

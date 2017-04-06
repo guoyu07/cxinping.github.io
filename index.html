@@ -155,20 +155,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-test1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-test2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/06/test1/">test1</a>
+      <a class="article-title" href="/2017/04/06/test2/">test2</a>
     </h1>
   
 
         
-        <a href="/2017/04/06/test1/" class="archive-article-date">
-  	<time datetime="2017-04-06T06:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
+        <a href="/2017/04/06/test2/" class="archive-article-date">
+  	<time datetime="2017-04-06T06:40:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
 </a>
         
       </header>
@@ -180,9 +180,23 @@
 				
 	  
 	  
-        <p><link rel="stylesheet" href="/vendors/prettify/prettify.css" type="text/css"></p>
-<script src="/vendors/prettify/prettify.min.js" type="text/javascript"></script>
+        <p><link rel="stylesheet" href="https://cxinping.github.io/uploads/prettify/prettify.css" type="text/css"></p>
+<script src="https://cxinping.github.io/uploads/prettify/prettify.min.js" type="text/javascript"></script>
 
+
+<script>
+$(window).load(function(){
+   $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+     prettyPrint();
+   })
+
+</script>
+
+
+
+
+
+<h2 id="直方图-Histograms"><a href="#直方图-Histograms" class="headerlink" title="直方图 Histograms"></a>直方图 Histograms</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># make an array of random numbers with a gaussian distribution with</span></div><div class="line"><span class="comment"># mean = 5.0</span></div><div class="line"><span class="comment"># rms = 3.0</span></div><div class="line"><span class="comment"># number of points = 1000</span></div><div class="line">data = np.random.normal(<span class="number">5.0</span>, <span class="number">3.0</span>, <span class="number">1000</span>)</div><div class="line"></div><div class="line"><span class="comment"># make a histogram of the data array</span></div><div class="line">pl.hist(data)</div><div class="line"></div><div class="line"><span class="comment"># make plot labels</span></div><div class="line">pl.xlabel(<span class="string">'data'</span>)</div><div class="line">pl.show()</div></pre></td></tr></table></figure>
       
 
       
@@ -194,7 +208,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/06/test1/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/06/test2/">展开全文 >></a>
         </p>
       
 

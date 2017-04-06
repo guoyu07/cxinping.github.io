@@ -191,7 +191,45 @@
 <a id="more"></a>
 <h1 id="第1章-NumPy-快速入门"><a href="#第1章-NumPy-快速入门" class="headerlink" title="第1章 NumPy 快速入门"></a>第1章 NumPy 快速入门</h1><h2 id="什么是NumPy？"><a href="#什么是NumPy？" class="headerlink" title="什么是NumPy？"></a>什么是NumPy？</h2><p>NumPy，即Numeric Python的缩写，是一个优秀的开源科学计算库，并已经成为Python科学<br>计算生态系统的重要组成部分。NumPy为我们提供了丰富的数学函数、强大的多维数组对象以及<br>优异的运算性能。尽管Python作为流行的编程语言非常灵活易用，但它本身并非为科学计算量身<br>定做，在开发效率和执行效率上均不适合直接用于数据分析，尤其是大数据的分析和处理。幸运<br>的是，NumPy为Python插上了翅膀，在保留Python语言优势的同时大大增强了科学计算和数据处<br>理的能力。更重要的是，NumPy与SciPy、Matplotlib、SciKits等其他众多Python科学计算库很好<br>地结合在一起，共同构建了一个完整的科学计算生态系统。毫不夸张地讲，NumPy是使用Python<br>进行数据分析的一个必备工具。</p>
 <h2 id="为什么使用NumPy"><a href="#为什么使用NumPy" class="headerlink" title="为什么使用NumPy?"></a>为什么使用NumPy?</h2><p>NumPy中数组的存储效率和输入输出性能均远远优于Python中等价的基本数据结构（如嵌套<br>的list容器）。其能够提升的性能是与数组中元素的数目成比例的。对于大型数组的运算，使用<br>NumPy的确很有优势。对于TB级的大文件，NumPy使用内存映射文件来处理，以达到最优的数<br>据读写性能。不过，NumPy数组的通用性不及Python提供的list容器，这是其不足之处。因此在科<br>学计算之外的领域，NumPy的优势也就不那么明显了。</p>
-<h2 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">numpysum</span><span class="params">(n)</span>:</span></div><div class="line">   a = np.arange(n) ** <span class="number">2</span></div><div class="line">   b = np.arange(n) ** <span class="number">3</span></div><div class="line">   c = a + b</div><div class="line"></div><div class="line">   <span class="keyword">return</span> c</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">pythonsum</span><span class="params">(n)</span>:</span></div><div class="line">   a = range(n)</div><div class="line">   b = range(n)</div><div class="line">   c = []</div><div class="line"></div><div class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</div><div class="line">       a[i] = i ** <span class="number">2</span></div><div class="line">       b[i] = i ** <span class="number">3</span></div><div class="line">       c.append(a[i] + b[i])</div><div class="line"></div><div class="line">   <span class="keyword">return</span> c</div><div class="line"></div><div class="line">size =  <span class="number">3</span> </div><div class="line"></div><div class="line">start = datetime.now()</div><div class="line">c = pythonsum(size)</div><div class="line">delta = datetime.now() - start</div><div class="line"><span class="keyword">print</span> <span class="string">"The last 2 elements of the sum"</span>, c[<span class="number">-2</span>:]</div><div class="line"><span class="keyword">print</span> <span class="string">"PythonSum elapsed time in microseconds"</span>, delta.microseconds</div><div class="line"></div><div class="line">start = datetime.now()</div><div class="line">c = numpysum(size)</div><div class="line">delta = datetime.now() - start</div><div class="line"><span class="keyword">print</span> <span class="string">"The last 2 elements of the sum"</span>, c[<span class="number">-2</span>:]</div><div class="line"><span class="keyword">print</span> <span class="string">"NumPySum elapsed time in microseconds"</span>, delta.microseconds</div></pre></td></tr></table></figure>
+<h2 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h2><pre><code class="python"># -*- coding: utf-8 -*-
+
+import sys
+from datetime import datetime
+import numpy as np
+
+def numpysum(n):
+   a = np.arange(n) ** 2
+   b = np.arange(n) ** 3
+   c = a + b
+
+   return c
+
+def pythonsum(n):
+   a = range(n)
+   b = range(n)
+   c = []
+
+   for i in range(len(a)):
+       a[i] = i ** 2
+       b[i] = i ** 3
+       c.append(a[i] + b[i])
+
+   return c
+
+size =  3 
+
+start = datetime.now()
+c = pythonsum(size)
+delta = datetime.now() - start
+print &quot;The last 2 elements of the sum&quot;, c[-2:]
+print &quot;PythonSum elapsed time in microseconds&quot;, delta.microseconds
+
+start = datetime.now()
+c = numpysum(size)
+delta = datetime.now() - start
+print &quot;The last 2 elements of the sum&quot;, c[-2:]
+print &quot;NumPySum elapsed time in microseconds&quot;, delta.microseconds
+</code></pre>
 
       
 

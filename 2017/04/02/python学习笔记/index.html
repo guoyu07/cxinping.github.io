@@ -209,8 +209,17 @@
 <li>DataFrame: 数据框</li>
 </ul>
 <h1 id="NumPy"><a href="#NumPy" class="headerlink" title="NumPy"></a>NumPy</h1><h2 id="什么是NumPy"><a href="#什么是NumPy" class="headerlink" title="什么是NumPy ?"></a>什么是NumPy ?</h2><p>NumPy系统是Python的一种开源的数值计算扩展。这种工具可用来存储和处理大型矩阵，比Python自身的嵌套列表（nested list structure)结构要高效的多。</p>
-<h2 id="输出矩阵"><a href="#输出矩阵" class="headerlink" title="输出矩阵"></a>输出矩阵</h2><p>np.ones()函数定义矩阵。使用np.ones( (3,4))函数生成一个3 * 4列的矩阵。返回的类型是ndarray，是个多维数组。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">xArray = np.ones( (<span class="number">3</span>,<span class="number">4</span>))</div><div class="line">print( xArray)</div></pre></td></tr></table></figure></p>
-<p>输出结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[[ <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>]</div><div class="line"> [ <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>]</div><div class="line"> [ <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>]]</div></pre></td></tr></table></figure></p>
+<h2 id="输出矩阵"><a href="#输出矩阵" class="headerlink" title="输出矩阵"></a>输出矩阵</h2><p>np.ones()函数定义矩阵。使用np.ones( (3,4))函数生成一个3 * 4列的矩阵。返回的类型是ndarray，是个多维数组。</p>
+<pre><code class="python">import numpy as np
+
+xArray = np.ones( (3,4))
+print( xArray)
+</code></pre>
+<p>输出结果：</p>
+<pre><code class="python">[[ 1.  1.  1.  1.]
+ [ 1.  1.  1.  1.]
+ [ 1.  1.  1.  1.]]
+</code></pre>
 <h1 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h1><h2 id="什么是-Matplotlib-？"><a href="#什么是-Matplotlib-？" class="headerlink" title="什么是 Matplotlib ？"></a>什么是 Matplotlib ？</h2><p>matplotlib 是python最著名的绘图库，它提供了一整套和matlab相似的命令API，十分适合交互式地行制图。而且也可以方便地将它作为绘图控件，嵌入GUI应用程序中。<br>它的文档相当完备，并且Gallery页面中有上百幅缩略图，打开之后都有源程序。因此如果你需要绘制某种类型的图，只需要在这个页面中浏览/复制/粘贴一下，基本上都能搞定。</p>
 <h2 id="特征："><a href="#特征：" class="headerlink" title="特征："></a>特征：</h2><ul>
 <li>基于Numpy</li>
@@ -229,7 +238,16 @@
 <blockquote>
 <p>数据收集 =&gt; 数据整理 =&gt; 数据分析</p>
 </blockquote>
-<h1 id="Matplotlib常用绘图"><a href="#Matplotlib常用绘图" class="headerlink" title="Matplotlib常用绘图"></a>Matplotlib常用绘图</h1><h2 id="折线图-Line-plots"><a href="#折线图-Line-plots" class="headerlink" title="折线图 Line plots"></a>折线图 Line plots</h2><p>折线图Line plots时关联一组x和y值的直线。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"> </div><div class="line">x = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]<span class="comment"># Make an array of x values</span></div><div class="line">y = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]<span class="comment"># Make an array of y values for each x value</span></div><div class="line"></div><div class="line">pl.plot(x, y)<span class="comment"># use pylab to plot x and y</span></div><div class="line">pl.show()<span class="comment"># show the plot on the screen</span></div></pre></td></tr></table></figure></p>
+<h1 id="Matplotlib常用绘图"><a href="#Matplotlib常用绘图" class="headerlink" title="Matplotlib常用绘图"></a>Matplotlib常用绘图</h1><h2 id="折线图-Line-plots"><a href="#折线图-Line-plots" class="headerlink" title="折线图 Line plots"></a>折线图 Line plots</h2><p>折线图Line plots时关联一组x和y值的直线。</p>
+<pre><code class="python">import numpy as np
+import pylab as pl
+
+x = [1, 2, 3, 4, 5]# Make an array of x values
+y = [1, 4, 9, 16, 25]# Make an array of y values for each x value
+
+pl.plot(x, y)# use pylab to plot x and y
+pl.show()# show the plot on the screen
+</code></pre>
 <p>运行脚本，显示如下图表：<br><img src="https://cxinping.github.io/uploads/201205230001198952.png" alt=""></p>
 <h2 id="散点图-Scatter-plots"><a href="#散点图-Scatter-plots" class="headerlink" title="散点图 Scatter plots"></a>散点图 Scatter plots</h2><p>把pl.plot(x, y)改成pl.plot(x, y, ‘o’)即可，下图的蓝色版本<br><img src="https://cxinping.github.io/uploads/plot1.png" alt=""></p>
 <p>1 线条颜色 Changing the line color<br>改变线条为红色：把pl.plot(x, y, ‘o’)改成pl.plot(x, y, ’or’)<br><img src="https://cxinping.github.io/uploads/plot2.png" alt=""></p>
@@ -238,17 +256,102 @@
 <p>线条虚实代码如下图所示：<br><img src="https://cxinping.github.io/uploads/201205230001238839.png" alt=""></p>
 <p>3 marker样式 Changing the marker style<br>设置为蓝色星型markers的核心代码为： pl.plot(x,y, ‘b*’ )<br><img src="https://cxinping.github.io/uploads/plot4.png" alt=""></p>
 <p>星形代码如下图所示：<br><img src="https://cxinping.github.io/uploads/20120523000125800.png" alt=""></p>
-<h2 id="图和轴标题以及轴坐标限度-Plot-and-axis-titles-and-limits"><a href="#图和轴标题以及轴坐标限度-Plot-and-axis-titles-and-limits" class="headerlink" title="图和轴标题以及轴坐标限度 Plot and axis titles and limits"></a>图和轴标题以及轴坐标限度 Plot and axis titles and limits</h2><p>演示例子如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"></div><div class="line">x = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]<span class="comment"># Make an array of x values</span></div><div class="line">y = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]<span class="comment"># Make an array of y values for each x value</span></div><div class="line">pl.plot(x, y)<span class="comment"># use pylab to plot x and y</span></div><div class="line"></div><div class="line">pl.title(<span class="string">'Plot of y vs. x'</span>)<span class="comment"># give plot a title</span></div><div class="line">pl.xlabel(<span class="string">'x axis'</span>)<span class="comment"># make axis labels</span></div><div class="line">pl.ylabel(<span class="string">'y axis'</span>)</div><div class="line"> </div><div class="line">pl.xlim(<span class="number">0.0</span>, <span class="number">7.0</span>)<span class="comment"># set axis limits</span></div><div class="line">pl.ylim(<span class="number">0.0</span>, <span class="number">30.</span>)</div><div class="line"></div><div class="line">pl.show()<span class="comment"># show the plot on the screen</span></div></pre></td></tr></table></figure></p>
-<h2 id="在一个坐标系上绘制多个图-Plotting-more-than-one-plot-on-the-same-set-of-axes"><a href="#在一个坐标系上绘制多个图-Plotting-more-than-one-plot-on-the-same-set-of-axes" class="headerlink" title="在一个坐标系上绘制多个图 Plotting more than one plot on the same set of axes"></a>在一个坐标系上绘制多个图 Plotting more than one plot on the same set of axes</h2><p>演示例子如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"> </div><div class="line">x1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]<span class="comment"># Make x, y arrays for each graph</span></div><div class="line">y1 = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]</div><div class="line">x2 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</div><div class="line">y2 = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">12</span>, <span class="number">16</span>]</div><div class="line"></div><div class="line">pl.plot(x1, y1, <span class="string">'r'</span>)<span class="comment"># use pylab to plot x and y</span></div><div class="line">pl.plot(x2, y2, <span class="string">'g'</span>)</div><div class="line"></div><div class="line">pl.title(<span class="string">'Plot of y vs. x'</span>)<span class="comment"># give plot a title</span></div><div class="line">pl.xlabel(<span class="string">'x axis'</span>)<span class="comment"># make axis labels</span></div><div class="line">pl.ylabel(<span class="string">'y axis'</span>)</div><div class="line"></div><div class="line">pl.xlim(<span class="number">0.0</span>, <span class="number">9.0</span>)<span class="comment"># set axis limits</span></div><div class="line">pl.ylim(<span class="number">0.0</span>, <span class="number">30.</span>)</div><div class="line">pl.show()<span class="comment"># show the plot on the screen</span></div></pre></td></tr></table></figure></p>
+<h2 id="图和轴标题以及轴坐标限度-Plot-and-axis-titles-and-limits"><a href="#图和轴标题以及轴坐标限度-Plot-and-axis-titles-and-limits" class="headerlink" title="图和轴标题以及轴坐标限度 Plot and axis titles and limits"></a>图和轴标题以及轴坐标限度 Plot and axis titles and limits</h2><p>演示例子如下：</p>
+<pre><code class="python">import numpy as np
+import pylab as pl
+
+x = [1, 2, 3, 4, 5]# Make an array of x values
+y = [1, 4, 9, 16, 25]# Make an array of y values for each x value
+pl.plot(x, y)# use pylab to plot x and y
+
+pl.title(&#39;Plot of y vs. x&#39;)# give plot a title
+pl.xlabel(&#39;x axis&#39;)# make axis labels
+pl.ylabel(&#39;y axis&#39;)
+
+pl.xlim(0.0, 7.0)# set axis limits
+pl.ylim(0.0, 30.)
+
+pl.show()# show the plot on the screen
+</code></pre>
+<h2 id="在一个坐标系上绘制多个图-Plotting-more-than-one-plot-on-the-same-set-of-axes"><a href="#在一个坐标系上绘制多个图-Plotting-more-than-one-plot-on-the-same-set-of-axes" class="headerlink" title="在一个坐标系上绘制多个图 Plotting more than one plot on the same set of axes"></a>在一个坐标系上绘制多个图 Plotting more than one plot on the same set of axes</h2><p>演示例子如下：</p>
+<pre><code class="python">import numpy as np
+import pylab as pl
+
+x1 = [1, 2, 3, 4, 5]# Make x, y arrays for each graph
+y1 = [1, 4, 9, 16, 25]
+x2 = [1, 2, 4, 6, 8]
+y2 = [2, 4, 8, 12, 16]
+
+pl.plot(x1, y1, &#39;r&#39;)# use pylab to plot x and y
+pl.plot(x2, y2, &#39;g&#39;)
+
+pl.title(&#39;Plot of y vs. x&#39;)# give plot a title
+pl.xlabel(&#39;x axis&#39;)# make axis labels
+pl.ylabel(&#39;y axis&#39;)
+
+pl.xlim(0.0, 9.0)# set axis limits
+pl.ylim(0.0, 30.)
+pl.show()# show the plot on the screen
+</code></pre>
 <p>运行脚本后，显示如下图表：<br><img src="https://cxinping.github.io/uploads/plot5.png" alt=""></p>
 <h2 id="图例-Figure-legends"><a href="#图例-Figure-legends" class="headerlink" title="图例 Figure legends"></a>图例 Figure legends</h2><p>pl.legend((plot1, plot2), (‘label1, label2’), ‘best’, numpoints=1)</p>
 <p>其中第三个参数表示图例放置的位置: ‘best’ ， ‘upper right’, ‘upper left’ , ‘center’, ‘lower left’ , ‘lower right’ .</p>
-<p>如果在当前figure里plot的时候已经指定了label，如plt.plot(x,z,label=”cos(x2)<br>“)，直接调用plt.legend()就可以了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"></div><div class="line">x1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]<span class="comment"># Make x, y arrays for each graph</span></div><div class="line"></div><div class="line">y1 = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]</div><div class="line"></div><div class="line">x2 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</div><div class="line"></div><div class="line">y2 = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">12</span>, <span class="number">16</span>]</div><div class="line"></div><div class="line">plot1 = pl.plot(x1, y1, <span class="string">'r'</span>)<span class="comment"># use pylab to plot x and y : Give your plots names</span></div><div class="line"></div><div class="line">plot2 = pl.plot(x2, y2, <span class="string">'go'</span>)</div><div class="line"></div><div class="line">pl.title(<span class="string">'Plot of y vs. x'</span>)<span class="comment"># give plot a title</span></div><div class="line"></div><div class="line">pl.xlabel(<span class="string">'x axis'</span>)<span class="comment"># make axis labels</span></div><div class="line"></div><div class="line">pl.ylabel(<span class="string">'y axis'</span>)</div><div class="line"></div><div class="line">pl.xlim(<span class="number">0.0</span>, <span class="number">9.0</span>)<span class="comment"># set axis limits</span></div><div class="line"></div><div class="line">pl.ylim(<span class="number">0.0</span>, <span class="number">30.</span>)</div><div class="line"></div><div class="line">pl.legend((plot1, plot2), (<span class="string">'label1, label2'</span>)  )<span class="comment"># make legend</span></div><div class="line"></div><div class="line">pl.show()<span class="comment"># show the plot on the screen</span></div></pre></td></tr></table></figure></p>
-<h2 id="直方图-Histograms"><a href="#直方图-Histograms" class="headerlink" title="直方图 Histograms"></a>直方图 Histograms</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># make an array of random numbers with a gaussian distribution with</span></div><div class="line"><span class="comment"># mean = 5.0</span></div><div class="line"><span class="comment"># rms = 3.0</span></div><div class="line"><span class="comment"># number of points = 1000</span></div><div class="line">data = np.random.normal(<span class="number">5.0</span>, <span class="number">3.0</span>, <span class="number">1000</span>)</div><div class="line"></div><div class="line"><span class="comment"># make a histogram of the data array</span></div><div class="line">pl.hist(data)</div><div class="line"></div><div class="line"><span class="comment"># make plot labels</span></div><div class="line">pl.xlabel(<span class="string">'data'</span>)</div><div class="line">pl.show()</div></pre></td></tr></table></figure>
+<p>如果在当前figure里plot的时候已经指定了label，如plt.plot(x,z,label=”cos(x2)<br>“)，直接调用plt.legend()就可以了。</p>
+<pre><code class="python">import numpy as np
+import pylab as pl
+
+x1 = [1, 2, 3, 4, 5]# Make x, y arrays for each graph
+
+y1 = [1, 4, 9, 16, 25]
+
+x2 = [1, 2, 4, 6, 8]
+
+y2 = [2, 4, 8, 12, 16]
+
+plot1 = pl.plot(x1, y1, &#39;r&#39;)# use pylab to plot x and y : Give your plots names
+
+plot2 = pl.plot(x2, y2, &#39;go&#39;)
+
+pl.title(&#39;Plot of y vs. x&#39;)# give plot a title
+
+pl.xlabel(&#39;x axis&#39;)# make axis labels
+
+pl.ylabel(&#39;y axis&#39;)
+
+pl.xlim(0.0, 9.0)# set axis limits
+
+pl.ylim(0.0, 30.)
+
+pl.legend((plot1, plot2), (&#39;label1, label2&#39;)  )# make legend
+
+pl.show()# show the plot on the screen
+</code></pre>
+<h2 id="直方图-Histograms"><a href="#直方图-Histograms" class="headerlink" title="直方图 Histograms"></a>直方图 Histograms</h2><pre><code class="python">import numpy as np
+import pylab as pl
+
+
+# make an array of random numbers with a gaussian distribution with
+# mean = 5.0
+# rms = 3.0
+# number of points = 1000
+data = np.random.normal(5.0, 3.0, 1000)
+
+# make a histogram of the data array
+pl.hist(data)
+
+# make plot labels
+pl.xlabel(&#39;data&#39;)
+pl.show()
+</code></pre>
 <p>运行脚本后，显示如下图表：<br><img src="https://cxinping.github.io/uploads/hist1.png" alt=""><br>如果不想要黑色轮廓可以改为: pl.hist(data, histtype=’stepfilled’),运行效果如下图所示：<br><img src="https://cxinping.github.io/uploads/hist2.png" alt=""></p>
 <h2 id="自定义直方图bin宽度-Setting-the-width-of-the-histogram-bins-manually"><a href="#自定义直方图bin宽度-Setting-the-width-of-the-histogram-bins-manually" class="headerlink" title="自定义直方图bin宽度 Setting the width of the histogram bins manually"></a>自定义直方图bin宽度 Setting the width of the histogram bins manually</h2><p>增加这两行</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bins = np.arange(<span class="number">-5.</span>, <span class="number">16.</span>, <span class="number">1.</span>) <span class="comment">#浮点数版本的range</span></div><div class="line">pl.hist(data, bins, histtype=<span class="string">'stepfilled'</span>)</div></pre></td></tr></table></figure>
-<h2 id="同一画板上绘制多幅子图-Plotting-more-than-one-axis-per-canvas"><a href="#同一画板上绘制多幅子图-Plotting-more-than-one-axis-per-canvas" class="headerlink" title="同一画板上绘制多幅子图 Plotting more than one axis per canvas"></a>同一画板上绘制多幅子图 Plotting more than one axis per canvas</h2><p>如果需要同时绘制多幅图表的话，可以是给figure传递一个整数参数指定图标的序号，如果所指定<br>序号的绘图对象已经存在的话，将不创建新的对象，而只是让它成为当前绘图对象。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fig1 = pl.figure(<span class="number">1</span>)</div><div class="line">pl.subplot(<span class="number">211</span>)</div></pre></td></tr></table></figure></p>
+<pre><code class="python">bins = np.arange(-5., 16., 1.) #浮点数版本的range
+pl.hist(data, bins, histtype=&#39;stepfilled&#39;)
+</code></pre>
+<h2 id="同一画板上绘制多幅子图-Plotting-more-than-one-axis-per-canvas"><a href="#同一画板上绘制多幅子图-Plotting-more-than-one-axis-per-canvas" class="headerlink" title="同一画板上绘制多幅子图 Plotting more than one axis per canvas"></a>同一画板上绘制多幅子图 Plotting more than one axis per canvas</h2><p>如果需要同时绘制多幅图表的话，可以是给figure传递一个整数参数指定图标的序号，如果所指定<br>序号的绘图对象已经存在的话，将不创建新的对象，而只是让它成为当前绘图对象。</p>
+<pre><code class="py">fig1 = pl.figure(1)
+pl.subplot(211)
+</code></pre>
 <p>subplot(211)把绘图区域等分为2行*1列共两个区域, 然后在区域1(上区域)中创建一个轴对象. pl.subplot(212)在区域2(下区域)创建一个轴对象。<br><img src="https://cxinping.github.io/uploads/pic1.png" alt=""></p>
 <p>参考资料：<br>绘图: matplotlib核心剖析<br><a href="http://www.cnblogs.com/vamei/archive/2013/01/30/2879700.html" target="_blank" rel="external">http://www.cnblogs.com/vamei/archive/2013/01/30/2879700.html</a></p>
 

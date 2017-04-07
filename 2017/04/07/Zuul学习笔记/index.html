@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="信平的小屋">
 <meta property="og:description" content="Zuul学习笔记">
 <meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/wangshuo1/921455/813588f.png">
-<meta property="og:updated_time" content="2017-04-07T08:39:44.310Z">
+<meta property="og:updated_time" content="2017-04-07T08:42:16.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zuul学习笔记">
 <meta name="twitter:description" content="Zuul学习笔记">
@@ -193,6 +193,21 @@
 <a id="more"></a>
 <h1 id="Zuul"><a href="#Zuul" class="headerlink" title="Zuul"></a>Zuul</h1><h2 id="什么是Zuul"><a href="#什么是Zuul" class="headerlink" title="什么是Zuul ?"></a>什么是Zuul ?</h2><p>Zuul 是提供动态路由，监控，弹性，安全等的边缘服务。Zuul 相当于是设备和 Netflix 流应用的 Web 网站后端所有请求的前门。Zuul 可以适当的对多个 Amazon Auto Scaling Groups 进行路由请求。</p>
 <p>其架构如下图所示：<br><img src="http://images.cnblogs.com/cnblogs_com/wangshuo1/921455/813588f.png" alt=""></p>
+<p>Zuul提供了一个框架，可以对过滤器进行动态的加载，编译，运行。过滤器之间没有直接的相互通信。他们是通过一个RequestContext的静态类来进行数据传递的。RequestContext类中有ThreadLocal变量来记录每个Request所需要传递的数据。</p>
+<p>过滤器是由Groovy写成。这些过滤器文件被放在Zuul Server上的特定目录下面。Zuul会定期轮询这些目录。修改过的过滤器会动态的加载到Zuul Server中以便于request使用。</p>
+<p>下面有几种标准的过滤器类型：</p>
+<ul>
+<li><p>PRE：这种过滤器在请求到达Origin Server之前调用。比如身份验证，在集群中选择请求的Origin Server，记log等。</p>
+</li>
+<li><p>ROUTING：在这种过滤器中把用户请求发送给Origin Server。发送给Origin Server的用户请求在这类过滤器中build。并使用Apache HttpClient或者Netfilx Ribbon发送给Origin Server。</p>
+</li>
+<li><p>POST：这种过滤器在用户请求从Origin Server返回以后执行。比如在返回的response上面加response header，做各种统计等。并在该过滤器中把response返回给客户。</p>
+</li>
+<li><p>ERROR：在其他阶段发生错误时执行该过滤器。</p>
+</li>
+<li><p>客户定制：比如我们可以定制一种STATIC类型的过滤器，用来模拟生成返回给客户的response。</p>
+</li>
+</ul>
 
       
 

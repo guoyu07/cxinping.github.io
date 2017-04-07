@@ -16,7 +16,7 @@
 <meta property="og:description" content="内容简绍：Zuul学习笔记">
 <meta property="og:image" content="https://cxinping.github.io/uploads/813588f.png">
 <meta property="og:image" content="https://cxinping.github.io/uploads/9ee9a879-28f6.png">
-<meta property="og:updated_time" content="2017-04-07T08:45:45.524Z">
+<meta property="og:updated_time" content="2017-04-07T08:51:07.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zuul学习笔记">
 <meta name="twitter:description" content="内容简绍：Zuul学习笔记">
@@ -185,7 +185,7 @@
 				
 				<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zuul"><span class="toc-number">1.</span> <span class="toc-text">Zuul</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Zuul"><span class="toc-number">1.1.</span> <span class="toc-text">什么是Zuul ?</span></a></li></ol></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zuul"><span class="toc-number">1.</span> <span class="toc-text">Zuul</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Zuul"><span class="toc-number">1.1.</span> <span class="toc-text">什么是Zuul ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤器类型"><span class="toc-number">1.2.</span> <span class="toc-text">过滤器类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤机制"><span class="toc-number">1.3.</span> <span class="toc-text">过滤机制</span></a></li></ol></li></ol>
 				</div>
 				
 	  
@@ -196,7 +196,7 @@
 <p>其架构如下图所示：<br><img src="https://cxinping.github.io/uploads/813588f.png" alt=""></p>
 <p>Zuul提供了一个框架，可以对过滤器进行动态的加载，编译，运行。过滤器之间没有直接的相互通信。他们是通过一个RequestContext的静态类来进行数据传递的。RequestContext类中有ThreadLocal变量来记录每个Request所需要传递的数据。</p>
 <p>过滤器是由Groovy写成。这些过滤器文件被放在Zuul Server上的特定目录下面。Zuul会定期轮询这些目录。修改过的过滤器会动态的加载到Zuul Server中以便于request使用。</p>
-<p>下面有几种标准的过滤器类型：</p>
+<h2 id="过滤器类型"><a href="#过滤器类型" class="headerlink" title="过滤器类型"></a>过滤器类型</h2><p>下面有几种标准的过滤器类型：</p>
 <ul>
 <li>PRE：这种过滤器在请求到达Origin Server之前调用。比如身份验证，在集群中选择请求的Origin Server，记log等。</li>
 <li>ROUTING：在这种过滤器中把用户请求发送给Origin Server。发送给Origin Server的用户请求在这类过滤器中build。并使用Apache HttpClient或者Netfilx Ribbon发送给Origin Server。</li>
@@ -205,6 +205,19 @@
 <li>客户定制：比如我们可以定制一种STATIC类型的过滤器，用来模拟生成返回给客户的response。</li>
 </ul>
 <p>过滤器的生命周期如下所示：<br><img src="https://cxinping.github.io/uploads/9ee9a879-28f6.png" alt=""></p>
+<h2 id="过滤机制"><a href="#过滤机制" class="headerlink" title="过滤机制"></a>过滤机制</h2><p>Zuul可以通过加载动态过滤机制，从而实现以下各项功能：</p>
+<ul>
+<li>验证与安全保障: 识别面向各类资源的验证要求并拒绝那些与要求不符的请求。</li>
+<li>审查与监控: 在边缘位置追踪有意义数据及统计结果，从而为我们带来准确的生产状态结论。</li>
+<li>动态路由: 以动态方式根据需要将请求路由至不同后端集群处。</li>
+<li>压力测试: 逐渐增加指向集群的负载流量，从而计算性能水平。</li>
+<li>负载分配: 为每一种负载类型分配对应容量，并弃用超出限定值的请求。</li>
+<li>静态响应处理: 在边缘位置直接建立部分响应，从而避免其流入内部集群。</li>
+<li>多区域弹性: 跨越AWS区域进行请求路由，旨在实现ELB使用多样化并保证边缘位置与使用者尽可能接近。</li>
+</ul>
+<p>除此之外，Netflix公司还利用Zuul的功能通过金丝雀版本实现精确路由与压力测试。</p>
+<p>其核心代码为：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;  </div><div class="line">    <span class="keyword">try</span> &#123;  </div><div class="line">        init((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);  </div><div class="line">        <span class="keyword">try</span> &#123;  </div><div class="line">            preRouting();  </div><div class="line">        &#125; <span class="keyword">catch</span> (ZuulException e) &#123;  </div><div class="line">            error(e);  </div><div class="line">            postRouting();  </div><div class="line">            <span class="keyword">return</span>;  </div><div class="line">        &#125;  </div><div class="line">        filterChain.doFilter(servletRequest, servletResponse);  </div><div class="line">        <span class="keyword">try</span> &#123;  </div><div class="line">            routing();  </div><div class="line">        &#125; <span class="keyword">catch</span> (ZuulException e) &#123;  </div><div class="line">            error(e);  </div><div class="line">            postRouting();  </div><div class="line">            <span class="keyword">return</span>;  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">try</span> &#123;  </div><div class="line">            postRouting();  </div><div class="line">        &#125; <span class="keyword">catch</span> (ZuulException e) &#123;  </div><div class="line">            error(e);  </div><div class="line">            <span class="keyword">return</span>;  </div><div class="line">        &#125;  </div><div class="line">    &#125; <span class="keyword">catch</span> (Throwable e) &#123;  </div><div class="line">        error(<span class="keyword">new</span> ZuulException(e, <span class="number">500</span>, <span class="string">"UNCAUGHT_EXCEPTION_FROM_FILTER_"</span> + e.getClass().getName()));  </div><div class="line">    &#125; <span class="keyword">finally</span> &#123;  </div><div class="line">        RequestContext.getCurrentContext().unset();  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Zuul加载Groovy过滤器：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line">import groovy.lang.GroovyClassLoader;    </div><div class="line">import groovy.lang.GroovyObject;    </div><div class="line">import org.junit.Test;    </div><div class="line">import org.junit.runner.RunWith;    </div><div class="line">import org.mockito.runners.MockitoJUnitRunner;    </div><div class="line">import org.slf4j.Logger;    </div><div class="line">import org.slf4j.LoggerFactory;    </div><div class="line">    </div><div class="line">import java.io.File;    </div><div class="line">import java.io.IOException;    </div><div class="line">    </div><div class="line">import static org.junit.Assert.*;    </div><div class="line">import static org.mockito.Mockito.spy;    </div><div class="line">    </div><div class="line">public class GroovyCompiler &#123;    </div><div class="line">    </div><div class="line">    private static final Logger LOG = LoggerFactory.getLogger(GroovyCompiler.class);    </div><div class="line">    </div><div class="line">    /**  </div><div class="line">     * Compiles Groovy code and returns the Class of the compiles code.  </div><div class="line">     *  </div><div class="line">     * @param sCode  </div><div class="line">     * @param sName  </div><div class="line">     * @return  </div><div class="line">     */    </div><div class="line">    public Class compile(String sCode, String sName) &#123;    </div><div class="line">        GroovyClassLoader loader = getGroovyClassLoader();    </div><div class="line">        LOG.warn("Compiling filter: " + sName);    </div><div class="line">        Class groovyClass = loader.parseClass(sCode, sName);    </div><div class="line">        return groovyClass;    </div><div class="line">    &#125;    </div><div class="line">    </div><div class="line">    /**  </div><div class="line">     * @return a new GroovyClassLoader  </div><div class="line">     */    </div><div class="line">    GroovyClassLoader getGroovyClassLoader() &#123;    </div><div class="line">        return new GroovyClassLoader();    </div><div class="line">    &#125;    </div><div class="line">    </div><div class="line">    /**  </div><div class="line">     * Compiles groovy class from a file  </div><div class="line">     *  </div><div class="line">     * @param file  </div><div class="line">     * @return  </div><div class="line">     * @throws java.io.IOException  </div><div class="line">     */    </div><div class="line">    public Class compile(File file) throws IOException &#123;    </div><div class="line">        GroovyClassLoader loader = getGroovyClassLoader();    </div><div class="line">        Class groovyClass = loader.parseClass(file);    </div><div class="line">        return groovyClass;    </div><div class="line">    &#125;    </div><div class="line">    </div><div class="line">    @RunWith(MockitoJUnitRunner.class)    </div><div class="line">    public static class UnitTest &#123;    </div><div class="line">        @Test    </div><div class="line">        public void testLoadGroovyFromString() &#123;    </div><div class="line">    </div><div class="line">            GroovyCompiler compiler = spy(new GroovyCompiler());    </div><div class="line">    </div><div class="line">            try &#123;    </div><div class="line">    </div><div class="line">                String code = "class test &#123; public String hello()&#123;return \"hello\" &#125; &#125; ";    </div><div class="line">                Class clazz = compiler.compile(code, "test");    </div><div class="line">                assertNotNull(clazz);    </div><div class="line">                assertEquals(clazz.getName(), "test");    </div><div class="line">                GroovyObject groovyObject = (GroovyObject) clazz.newInstance();    </div><div class="line">                Object[] args = &#123;&#125;;    </div><div class="line">                String s = (String) groovyObject.invokeMethod("hello", args);    </div><div class="line">                assertEquals(s, "hello");    </div><div class="line">    </div><div class="line">    </div><div class="line">            &#125; catch (Exception e) &#123;    </div><div class="line">                assertFalse(true);    </div><div class="line">            &#125;    </div><div class="line">    </div><div class="line">        &#125;    </div><div class="line">    &#125;    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -415,11 +428,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英语</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">英语</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -427,11 +440,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">十分钟搞定Pandas</a>
+                <a href="javascript:void(0)" class="js-tag color5">心有猛虎</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">心有猛虎</a>
+                <a href="javascript:void(0)" class="js-tag color2">十分钟搞定Pandas</a>
               </li>
              
               <li class="article-tag-list-item">

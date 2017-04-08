@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/08/数据处理-Numpy/index.html">
 <meta property="og:site_name" content="信平的小屋">
 <meta property="og:description" content="内容简绍：数据处理-Numpy">
-<meta property="og:updated_time" content="2017-04-08T16:16:19.944Z">
+<meta property="og:updated_time" content="2017-04-08T16:18:34.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据处理-Numpy">
 <meta name="twitter:description" content="内容简绍：数据处理-Numpy">
@@ -248,7 +248,10 @@
 <p>稍微复杂一些，我们尝试取出满足某些条件的元素，这在数据的处理中十分常见，通常用在单行单列上。下面这个例子是将第一列大于5的元素（10和15）对应的第三列元素（12和17）取出来：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a[:, <span class="number">2</span>][a[:, <span class="number">0</span>] &gt; <span class="number">5</span>]</div><div class="line"></div><div class="line">array([<span class="number">12</span>, <span class="number">17</span>])</div></pre></td></tr></table></figure>
 <p>可使用where函数查找特定值在数组中的位置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">loc = numpy.where(a==<span class="number">11</span>)</div><div class="line"><span class="keyword">print</span> loc</div><div class="line"><span class="keyword">print</span> a[loc[<span class="number">0</span>][<span class="number">0</span>], loc[<span class="number">1</span>][<span class="number">0</span>]]</div><div class="line"></div><div class="line">(array([<span class="number">2</span>]), array([<span class="number">1</span>]))</div><div class="line"></div><div class="line"><span class="number">11</span></div></pre></td></tr></table></figure></p>
-<h1 id="数组操作-1"><a href="#数组操作-1" class="headerlink" title="数组操作"></a>数组操作</h1><p>还是拿矩阵（或二维数组）作为例子，首先来看矩阵转置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">a = np.random.rand(<span class="number">2</span>,<span class="number">4</span>)</div><div class="line"><span class="keyword">print</span> <span class="string">"a:"</span></div><div class="line"><span class="keyword">print</span> a</div><div class="line">a = np.transpose(a)</div><div class="line"><span class="keyword">print</span> <span class="string">"a is an array, by using transpose(a):"</span></div><div class="line"><span class="keyword">print</span> a</div><div class="line">b = np.random.rand(<span class="number">2</span>,<span class="number">4</span>)</div><div class="line">b = np.mat(b)</div><div class="line"><span class="keyword">print</span> <span class="string">"b:"</span></div><div class="line"><span class="keyword">print</span> b</div><div class="line"><span class="keyword">print</span> <span class="string">"b is a matrix, by using b.T:"</span></div><div class="line"><span class="keyword">print</span> b.T</div></pre></td></tr></table></figure></p>
+<h1 id="数组操作-1"><a href="#数组操作-1" class="headerlink" title="数组操作"></a>数组操作</h1><p>还是拿矩阵（或二维数组）作为例子，首先来看矩阵转置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">a = np.random.rand(<span class="number">2</span>,<span class="number">4</span>)</div><div class="line"><span class="keyword">print</span> <span class="string">"a:"</span></div><div class="line"><span class="keyword">print</span> a</div><div class="line">a = np.transpose(a)</div><div class="line"><span class="keyword">print</span> <span class="string">"a is an array, by using transpose(a):"</span></div><div class="line"><span class="keyword">print</span> a</div><div class="line">b = np.random.rand(<span class="number">2</span>,<span class="number">4</span>)</div><div class="line">b = np.mat(b)</div><div class="line"><span class="keyword">print</span> <span class="string">"b:"</span></div><div class="line"><span class="keyword">print</span> b</div><div class="line"><span class="keyword">print</span> <span class="string">"b is a matrix, by using b.T:"</span></div><div class="line"><span class="keyword">print</span> b.T</div><div class="line"></div><div class="line">a:</div><div class="line"></div><div class="line">[[ <span class="number">0.17571282</span>  <span class="number">0.98510461</span>  <span class="number">0.94864387</span>  <span class="number">0.50078988</span>]</div><div class="line"> [ <span class="number">0.09457965</span>  <span class="number">0.70251658</span>  <span class="number">0.07134875</span>  <span class="number">0.43780173</span>]]</div><div class="line">a <span class="keyword">is</span> an array, by using transpose(a):</div><div class="line">[[ <span class="number">0.17571282</span>  <span class="number">0.09457965</span>]</div><div class="line"> [ <span class="number">0.98510461</span>  <span class="number">0.70251658</span>]</div><div class="line"> [ <span class="number">0.94864387</span>  <span class="number">0.07134875</span>]</div><div class="line"> [ <span class="number">0.50078988</span>  <span class="number">0.43780173</span>]]</div><div class="line">b:</div><div class="line">[[ <span class="number">0.09653644</span>  <span class="number">0.46123468</span>  <span class="number">0.50117363</span>  <span class="number">0.69752578</span>]</div><div class="line"> [ <span class="number">0.60756723</span>  <span class="number">0.44492537</span>  <span class="number">0.05946373</span>  <span class="number">0.4858369</span> ]]</div><div class="line">b <span class="keyword">is</span> a matrix, by using b.T:</div><div class="line">[[ <span class="number">0.09653644</span>  <span class="number">0.60756723</span>]</div><div class="line"> [ <span class="number">0.46123468</span>  <span class="number">0.44492537</span>]</div><div class="line"> [ <span class="number">0.50117363</span>  <span class="number">0.05946373</span>]</div><div class="line"> [ <span class="number">0.69752578</span>  <span class="number">0.4858369</span> ]]</div></pre></td></tr></table></figure></p>
+<p>NumPy还有很多的函数，想详细了解可参考链接<a href="http://wiki.scipy.org/Numpy_Example_List" target="_blank" rel="external">http://wiki.scipy.org/Numpy_Example_List</a> 和 <a href="http://docs.scipy.org/doc/numpy" target="_blank" rel="external">http://docs.scipy.org/doc/numpy</a></p>
+<p>最后献上NumPy SciPy Pandas Cheat Sheet</p>
+<p>ppp4.jpg</p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="http://wiki.scipy.org/Tentative_NumPy_Tutorial" target="_blank" rel="external">http://wiki.scipy.org/Tentative_NumPy_Tutorial</a><br>Sheppard K. Introduction to Python for econometrics, statistics and data analysis. Self-published, University of Oxford, version, 2012, 2.</p>
 
       
@@ -449,11 +452,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英语</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">英语</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -461,11 +464,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">心有猛虎</a>
+                <a href="javascript:void(0)" class="js-tag color2">十分钟搞定Pandas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">十分钟搞定Pandas</a>
+                <a href="javascript:void(0)" class="js-tag color5">心有猛虎</a>
               </li>
              
               <li class="article-tag-list-item">

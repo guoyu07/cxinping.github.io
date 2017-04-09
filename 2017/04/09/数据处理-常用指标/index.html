@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/09/数据处理-常用指标/index.html">
 <meta property="og:site_name" content="信平的小屋">
 <meta property="og:description" content="内容简绍：数据处理-常用指标">
-<meta property="og:updated_time" content="2017-04-09T09:45:14.843Z">
+<meta property="og:updated_time" content="2017-04-09T12:35:32.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据处理-常用指标">
 <meta name="twitter:description" content="内容简绍：数据处理-常用指标">
@@ -182,7 +182,7 @@
 				
 				<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#成交量加权平均价格（VWAP）"><span class="toc-number">1.</span> <span class="toc-text">成交量加权平均价格（VWAP）</span></a></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#成交量加权平均价格（VWAP）"><span class="toc-number">1.</span> <span class="toc-text">成交量加权平均价格（VWAP）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算术平均值函数-mean"><span class="toc-number">2.</span> <span class="toc-text">算术平均值函数(mean)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#时间加权平均价格-TWAP"><span class="toc-number">3.</span> <span class="toc-text">时间加权平均价格(TWAP)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最大值，最小值"><span class="toc-number">4.</span> <span class="toc-text">最大值，最小值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#股票收益率"><span class="toc-number">5.</span> <span class="toc-text">股票收益率</span></a></li></ol>
 				</div>
 				
 	  
@@ -190,18 +190,20 @@
         <p>内容简绍：数据处理-常用指标</p>
 <a id="more"></a>
 <h1 id="成交量加权平均价格（VWAP）"><a href="#成交量加权平均价格（VWAP）" class="headerlink" title="成交量加权平均价格（VWAP）"></a>成交量加权平均价格（VWAP）</h1><p>测试数据源: data.csv<br>下载地址：<a href="https://cxinping.github.io/uploads/data/data.csv" target="_blank" rel="external">https://cxinping.github.io/uploads/data/data.csv</a></p>
-<p>1 VWAP概念<br>VWAP（Volume-Weighted Average Price，成交量加权平均价格）是一个非常重要的经济学量，<br>它代表着金融资产的“平均”价格。某个价格的成交量越高，该价格所占的权重就越大。VWAP<br>就是以成交量为权重计算出来的加权平均值，常用于算法交易。</p>
-<p>NumPy中的loadtxt函数可以方便地读取CSV文件，自动切分字段，并将数据载入NumPy数组。下面，我们以载入苹果公司的历史股价数据为例展开叙述。股价数据存储在CSV文件中，第一列为股票代码以标识股票（苹果公司股票代码为AAPL），第二列为dd-mm-yyyy格式的日期，第三列为空，随后各列依次是开盘价、最高价、最低<br>价和收盘价，最后一列为当日的成交量。下面为一行数据：</p>
+<p>1 VWAP概念<br>VWAP（Volume-Weighted Average Price，成交量加权平均价格）是一个非常重要的经济学量，它代表着金融资产的“平均”价格。某个价格的成交量越高，该价格所占的权重就越大。VWAP就是以成交量为权重计算出来的加权平均值，常用于算法交易。</p>
+<p>NumPy中的loadtxt函数可以方便地读取CSV文件，自动切分字段，并将数据载入NumPy数组。下面，我们以载入苹果公司的历史股价数据为例展开叙述。股价数据存储在CSV文件中，第一列为股票代码以标识股票（苹果公司股票代码为AAPL），第二列为dd-mm-yyyy格式的日期，第三列为空，随后各列依次是开盘价、最高价、最低价和收盘价，最后一列为当日的成交量。下面为一行数据：</p>
 <blockquote>
-<p>AAPL,28-01-2011, ,344.17,344.4,333.53,336.1,21144800</p>
+<p>股票代码   ，日期        ， ，开盘价  ，最高价 ，最低价  ，收盘价 ，成交量<br>AAPL      ,28-01-2011 ,  ,344.17  ,344.4  ,333.53  ,336.1   ,21144800</p>
 </blockquote>
 <p>只关注股票的收盘价和成交量。在上面的示例数据中，收盘价为336.1，成交量为21144800。我们将收盘价和成交量分别载入到两个数组中，如下所示：</p>
 <blockquote>
 <p>c,v=np.loadtxt(r’E:\data\data.csv’, delimiter=’,’, usecols=(6,7), unpack=True)</p>
 </blockquote>
 <p>可以看到，数据存储在data.csv文件中，我们设置分隔符为,（英文标点逗号），因为我们要处理一个CSV文件。usecols的参数为一个元组，以获取第7字段至第8字段的数据，也就是股票的收盘价和成交量数据。unpack参数设置为True，意思是分拆存储不同列的数据，即分别将收盘价和成交量的数组赋值给变量c和v。</p>
-<p>2 代码实现<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">vwap = np.average(c, weights=v)</div><div class="line"><span class="keyword">print</span> <span class="string">"VWAP ="</span>, vwap</div></pre></td></tr></table></figure></p>
-
+<p>2 代码实现<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">c,v=np.loadtxt(<span class="string">r'E:\data\data.csv'</span>, delimiter=<span class="string">','</span>, usecols=(<span class="number">6</span>,<span class="number">7</span>), unpack=<span class="keyword">True</span>)</div><div class="line">vwap = np.average(c, weights=v)</div><div class="line"><span class="keyword">print</span> <span class="string">"VWAP ="</span>, vwap</div></pre></td></tr></table></figure></p>
+<h1 id="算术平均值函数-mean"><a href="#算术平均值函数-mean" class="headerlink" title="算术平均值函数(mean)"></a>算术平均值函数(mean)</h1><p>NumPy中的mean函数可以计算数组元素的算术平均值。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">c,v=np.loadtxt(<span class="string">r'E:\data\data.csv'</span>, delimiter=<span class="string">','</span>, usecols=(<span class="number">6</span>,<span class="number">7</span>), unpack=<span class="keyword">True</span>)</div><div class="line"><span class="keyword">print</span> <span class="string">"mean ="</span>, np.mean(c)</div></pre></td></tr></table></figure></p>
+<h1 id="时间加权平均价格-TWAP"><a href="#时间加权平均价格-TWAP" class="headerlink" title="时间加权平均价格(TWAP)"></a>时间加权平均价格(TWAP)</h1><p>在经济学中，TWAP（Time-Weighted Average Price，时间加权平均价格）是另一种“平均”价格的指标。其实TWAP只是一个变种而已，基本的思想就是最近的价格重要性大一些，所以应该对近期的价格给以较高的权重。最简单的方法就是用arange函数创建一个从0开始依次增长的自然数序列，自然数的个数即为收盘价的个数。当然，这并不一定是正确的计算TWAP的方式。计算TWAP的代码如下。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">c,v=np.loadtxt(<span class="string">r'E:\data\data.csv'</span>, delimiter=<span class="string">','</span>, usecols=(<span class="number">6</span>,<span class="number">7</span>), unpack=<span class="keyword">True</span>)</div><div class="line">t = np.arange(len(c))</div><div class="line"><span class="keyword">print</span> <span class="string">"twap ="</span>, np.average(c, weights=t)</div></pre></td></tr></table></figure></p>
+<h1 id="最大值，最小值"><a href="#最大值，最小值" class="headerlink" title="最大值，最小值"></a>最大值，最小值</h1><h1 id="股票收益率"><a href="#股票收益率" class="headerlink" title="股票收益率"></a>股票收益率</h1>
       
 
       
@@ -411,11 +413,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英语</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">英语</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/09/数据处理-常用指标/index.html">
 <meta property="og:site_name" content="信平的小屋">
 <meta property="og:description" content="内容简绍：数据处理-常用指标">
-<meta property="og:updated_time" content="2017-04-09T09:02:25.911Z">
+<meta property="og:updated_time" content="2017-04-09T09:43:15.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据处理-常用指标">
 <meta name="twitter:description" content="内容简绍：数据处理-常用指标">
@@ -182,13 +182,24 @@
 				
 				<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				
+				<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#成交量加权平均价格（VWAP）"><span class="toc-number">1.</span> <span class="toc-text">成交量加权平均价格（VWAP）</span></a></li></ol>
 				</div>
 				
 	  
 	  
         <p>内容简绍：数据处理-常用指标</p>
 <a id="more"></a>
+<h1 id="成交量加权平均价格（VWAP）"><a href="#成交量加权平均价格（VWAP）" class="headerlink" title="成交量加权平均价格（VWAP）"></a>成交量加权平均价格（VWAP）</h1><p>测试数据源: data.csv<br>下载地址：<a href="https://cxinping.github.io/uploads/data/data.csv" target="_blank" rel="external">https://cxinping.github.io/uploads/data/data.csv</a></p>
+<p>1 VWAP概念<br>VWAP（Volume-Weighted Average Price，成交量加权平均价格）是一个非常重要的经济学量，<br>它代表着金融资产的“平均”价格。某个价格的成交量越高，该价格所占的权重就越大。VWAP<br>就是以成交量为权重计算出来的加权平均值，常用于算法交易。</p>
+<p>NumPy中的loadtxt函数可以方便地读取CSV文件，自动切分字段，并将数据载入NumPy数组。下面，我们以载入苹果公司的历史股价数据为例展开叙述。股价数据存储在CSV文件中，第一列为股票代码以标识股票（苹果公司股票代码为AAPL），第二列为dd-mm-yyyy格式的日期，第三列为空，随后各列依次是开盘价、最高价、最低<br>价和收盘价，最后一列为当日的成交量。下面为一行数据：</p>
+<blockquote>
+<p>AAPL,28-01-2011, ,344.17,344.4,333.53,336.1,21144800</p>
+</blockquote>
+<p>只关注股票的收盘价和成交量。在上面的示例数据中，收盘价为336.1，成交量为21144800。我们将收盘价和成交量分别载入到两个数组中，如下所示：</p>
+<blockquote>
+<p>c,v=np.loadtxt(r’E:\data\data.csv’, delimiter=’,’, usecols=(6,7), unpack=True)</p>
+</blockquote>
+<p>2 代码实现<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">vwap = np.average(c, weights=v)</div><div class="line"><span class="keyword">print</span> <span class="string">"VWAP ="</span>, vwap</div></pre></td></tr></table></figure></p>
 
       
 
@@ -399,11 +410,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英语</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">英语</a>
               </li>
              
               <li class="article-tag-list-item">

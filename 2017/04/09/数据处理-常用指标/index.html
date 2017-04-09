@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/09/数据处理-常用指标/index.html">
 <meta property="og:site_name" content="信平的小屋">
 <meta property="og:description" content="内容简绍：数据处理-常用指标">
-<meta property="og:updated_time" content="2017-04-09T09:43:15.211Z">
+<meta property="og:updated_time" content="2017-04-09T09:45:14.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据处理-常用指标">
 <meta name="twitter:description" content="内容简绍：数据处理-常用指标">
@@ -199,6 +199,7 @@
 <blockquote>
 <p>c,v=np.loadtxt(r’E:\data\data.csv’, delimiter=’,’, usecols=(6,7), unpack=True)</p>
 </blockquote>
+<p>可以看到，数据存储在data.csv文件中，我们设置分隔符为,（英文标点逗号），因为我们要处理一个CSV文件。usecols的参数为一个元组，以获取第7字段至第8字段的数据，也就是股票的收盘价和成交量数据。unpack参数设置为True，意思是分拆存储不同列的数据，即分别将收盘价和成交量的数组赋值给变量c和v。</p>
 <p>2 代码实现<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">vwap = np.average(c, weights=v)</div><div class="line"><span class="keyword">print</span> <span class="string">"VWAP ="</span>, vwap</div></pre></td></tr></table></figure></p>
 
       
